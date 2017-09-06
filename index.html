@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrapper {
+      width: 500px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <img class="preview" >
+  <input type="file" name="file" id="input"/>
+  <script>
+    let input = document.querySelector('#input')
+    let url = 'http://10.8.188.96'
+    input.addEventListener('change', async function () {
+      console.log(this)
+      let file = this.files[0]
+      let fileReader = new FileReader()
+      let formData = new FormData()
+      formData.append('user', '皱凯凯凯凯')
+      formData.append('file', file)
+      formData.append('age', '23')
+      console.log(formData.get('file'));
+      let res = await fetch(':8080', {
+        method: 'POST',
+        headers: {
+          'content-type': 'multipart/form-data'
+        },
+        body: formData
+      })
+      let data = await res.json()
+      console.log(data)
+    })
+  </script>
+</body>
+</html>
