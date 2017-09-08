@@ -18,4 +18,4 @@ open the index.html file just in chrome or other morden browser, select a file(n
 Buffer operation & split the request body
 
 # one more thing
-This is a very simple example to show my way on parse formData in node
+This is a very simple example to show my way in parsing formData in node
